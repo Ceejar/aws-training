@@ -1,1 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cee Jay | Cloud & Cybersecurity Professional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: #1f2937;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.75));
+      border-bottom: 1px solid rgba(31, 41, 55, 0.7);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-logo span {
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding: 2.5rem 2rem;
+      border-radius: 1.5rem;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.12), transparent 55%),
+                  var(--bg-alt);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.65rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      cursor: pointer;
+      background: transparent;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s ease-out, transform 0.1s ease-out, box-shadow 0.2s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      border: none;
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
+      background-color: rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.45);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-card {
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-card-role {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-card-list li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+    }
+
+    /* Section headers */
+
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* About */
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+    }
+
+    .card {
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .about-text p + p {
+      margin-top: 0.75rem;
+    }
+
+    .about-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .about-meta-item {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    /* Experience / Projects */
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      border-radius: 1rem;
+      padding: 1.1rem 1.2rem;
+      background: var(--card);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .timeline-company {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .timeline-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .timeline-body ul {
+      margin-top: 0.4rem;
+      padding-left: 1rem;
+    }
+
+    .timeline-body li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Certifications */
+
+    .cert-list {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .cert-item {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+    }
+
+    .contact-links {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-links div {
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: rgba(2, 6, 23, 0.95);
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .hero {
+        padding: 1.75rem 1.5rem;
+      }
+
+      main {
+        padding: 1.5rem 1.25rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        CEE JAY
+        <span>Cloud · Security · Learning</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div>
+        <div class="hero-kicker">Cloud · Cybersecurity · Technical Learning</div>
+        <h1 class="hero-title">
+          Designing secure, modern architectures<br />
+          for <span>cloud, AI/ML, and digital transformation</span>.
+        </h1>
+        <p class="hero-subtitle">
+          I’m Cee Jay, a cybersecurity and cloud-focused professional with deep experience in threat detection,
+          vulnerability management, and security architecture across enterprise environments. I help organisations
+          build secure, resilient platforms—while enabling teams to learn, adopt, and grow with confidence.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="scrollToSection('contact')">
+            Collaborate or Hire Me →
+          </button>
+          <button class="btn" onclick="scrollToSection('experience')">
+            View Experience
+          </button>
+          <button class="btn" onclick="scrollToSection('skills')">
+            Skills & Technologies
+          </button>
+        </div>
+        <div class="hero-meta">
+          <span>Cybersecurity Analyst · Threat Detection · Vulnerability Management</span>
+          <span>Cloud & On-Prem Security · SIEM · SOC Collaboration</span>
+          <span>Based in Salford, England · Open to remote & hybrid</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="hero-card-title">Profile Snapshot</div>
+        <div class="hero-card-name">Cee Jay</div>
+        <div class="hero-card-role">
+          Cybersecurity Analyst · Cloud Security · Technical Learning Advocate
+        </div>
+        <ul class="hero-card-list">
+          <li><span class="hero-dot"></span> Threat Detection & Vulnerability Management</li>
+          <li><span class="hero-dot"></span> Cloud & On-Prem Security (Enterprise scale)</li>
+          <li><span class="hero-dot"></span> SIEM: Sentinel, Splunk, Kibana, LogRhythm</li>
+          <li><span class="hero-dot"></span> Tools: Tenable, Nessus, Qualys, Defender</li>
+          <li><span class="hero-dot"></span> Frameworks: MITRE ATT&CK, GRC & Assurance</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-header">
+        <div class="section-kicker">About</div>
+        <h2 class="section-title">A modern security mindset for cloud and AI-driven organisations</h2>
+        <p class="section-subtitle">
+          Blending hands-on security operations with strategic risk thinking and a passion for technical learning.
+        </p>
+      </div>
+      <div class="about">
+        <div class="card">
+          <div class="about-text">
+            <p>
+              Over the past several years, I’ve worked across complex enterprise environments—helping organisations
+              strengthen their security posture, modernise their infrastructure, and respond effectively to evolving
+              threats. My experience spans threat detection, vulnerability management, OT security, and governance,
+              risk, and compliance.
+            </p>
+            <p>
+              I’ve designed and implemented SIEM use cases, built analytics rules in Microsoft Sentinel using KQL,
+              and collaborated closely with SOC and infrastructure teams to turn raw telemetry into actionable
+              insight. I’m comfortable working across cloud and on-prem environments, and I’m particularly focused
+              on building architectures that are secure by design, observable, and ready for AI/ML-driven analytics.
+            </p>
+            <p>
+              Beyond delivery, I care deeply about how teams learn. I enjoy translating complex security concepts
+              into clear, practical guidance—whether for engineers, stakeholders, or learners starting their journey
+              in cloud and cybersecurity. My goal is to be a trusted partner: someone who can design, implement, and
+              explain security solutions in a way that builds confidence and capability.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="about-meta">
+            <div class="about-meta-item"><strong>Location:</strong> Salford, England, United Kingdom</div>
+            <div class="about-meta-item">
+              <strong>Current focus:</strong> Cloud security, threat detection, vulnerability management, and
+              technical enablement.
+            </div>
+            <div class="about-meta-item">
+              <strong>Previous roles:</strong> Cyber Security SME, Senior Security Analyst, Senior Security &
+              Detection Analyst, GRC & Assurance Lead, Security Risk & Compliance Analyst.
+            </div>
+            <div class="about-meta-item">
+              <strong>Collaboration:</strong> Open to mentoring, speaking, content creation, and project-based
+              engagements around cloud, security, and learning.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-header">
+        <div class="section-kicker">Skills & Technologies</div>
+        <h2 class="section-title">Core capabilities across cloud, security, and analytics</h2>
+        <p class="section-subtitle">
+          A blend of hands-on tools, frameworks, and practices used in real-world enterprise environments.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Security & Threat Detection</h3>
+          <div class="pill-group">
+            <span class="pill">Information Security</span>
+            <span class="pill">Threat Detection</span>
+            <span class="pill">Vulnerability Management</span>
+            <span class="pill">Incident Response</span>
+            <span class="pill">Forensics Support</span>
+            <span class="pill">Risk Assessment</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Cloud & On-Prem Security</h3>
+          <div class="pill-group">
+            <span class="pill">Cloud & On-Prem Security</span>
+            <span class="pill">OT Security</span>
+            <span class="pill">Firewall Configuration</span>
+            <span class="pill">Antivirus Deployment</span>
+            <span class="pill">Patch Management</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>SIEM, SOC & Analytics</h3>
+          <div class="pill-group">
+            <span class="pill">Microsoft Sentinel (KQL)</span>
+            <span class="pill">LogRhythm</span>
+            <span class="pill">Splunk</span>
+            <span class="pill">Kibana</span>
+            <span class="pill">Custom Use Cases</span>
+            <span class="pill">Dashboards & Reporting</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tools & Frameworks</h3>
+          <div class="pill-group">
+            <span class="pill">Tenable</span>
+            <span class="pill">Nessus</span>
+            <span class="pill">Qualys</span>
+            <span class="pill">Microsoft Defender</span>
+            <span class="pill">MITRE ATT&CK</span>
+            <span class="pill">GRC & Assurance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience / Projects -->
+    <section id="experience">
+      <div class="section-header">
+        <div class="section-kicker">Experience & Portfolio</div>
+        <h2 class="section-title">Selected roles and impact</h2>
+        <p class="section-subtitle">
+          Real-world security work across energy, consulting, pharma, and technology environments.
+        </p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Cyber Security SME</div>
+              <div class="timeline-company">National Grid</div>
+            </div>
+            <div class="timeline-date">March 2022 – Present</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Developed and optimized custom analytics rules in Microsoft Sentinel using KQL to improve threat detection efficiency.</li>
+              <li>Designed and implemented SIEM use cases to enhance threat detection and incident response capabilities.</li>
+              <li>Managed security solutions for OT environments, including firewall configurations, antivirus deployments, and LogRhythm SIEM.</li>
+              <li>Conducted regular security assessments and audits of OT systems, identifying vulnerabilities and recommending remediation.</li>
+              <li>Leveraged Logic Apps to automate SOAR workflows, improving response time and operational efficiency.</li>
+              <li>Collaborated with IT teams on patching and system updates to mitigate known vulnerabilities.</li>
+              <li>Participated in incident response activities, including forensic analysis and reporting.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Senior Security Analyst</div>
+              <div class="timeline-company">Lloyd's Register</div>
+            </div>
+            <div class="timeline-date">September 2021 – January 2022</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Performed threat analysis using Microsoft Defender and other threat intelligence tools to identify potential security risks.</li>
+              <li>Evaluated and tested internal information systems and networks, including third-party cloud systems and integrations.</li>
+              <li>Conducted ethical hacking and security breach simulations to uncover weaknesses and vulnerabilities.</li>
+              <li>Supported security incident management and investigations, including forensics, containment, and recovery.</li>
+              <li>Assisted the internal SOC with technical investigation of phishing, malware outbreaks, and system compromises.</li>
+              <li>Supported internal security audits and contributed to the Information Security Risk Register.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Senior Security & Detection Analyst (Vulnerability Management)</div>
+              <div class="timeline-company">Deloitte</div>
+            </div>
+            <div class="timeline-date">February 2021 – September 2021</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Conducted regular vulnerability scans and penetration tests, prioritising risks using CVSS scoring.</li>
+              <li>Collaborated with IT and DevOps teams to remediate vulnerabilities and reduce average remediation time.</li>
+              <li>Integrated threat intelligence feeds to proactively identify emerging risks and enhance detection capabilities.</li>
+              <li>Developed and maintained dashboards and reports summarising security posture and risk trends for executives.</li>
+              <li>Assisted in incident investigations, providing root cause analysis and recommending preventive measures.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Governance, Risk, Compliance & Assurance Lead</div>
+              <div class="timeline-company">LEO Pharma</div>
+            </div>
+            <div class="timeline-date">March 2019 – November 2019</div>
+          </div>
+          <div class="timeline-body">
+            <p>
+              Led GRC and assurance activities, helping align security practices with organisational risk appetite and regulatory requirements.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Security Risk & Compliance Analyst</div>
+              <div class="timeline-company">Capgemini</div>
+            </div>
+            <div class="timeline-date">August 2017 – October 2018</div>
+          </div>
+          <div class="timeline-body">
+            <p>
+              Supported security risk and compliance initiatives, contributing to assessments, controls, and remediation planning in large-scale environments.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+      <div class="section-header">
+        <div class="section-kicker">Certifications</div>
+        <h2 class="section-title">Formal credentials & continuous learning</h2>
+        <p class="section-subtitle">
+          This section can be expanded as new certifications are added to your profile.
+        </p>
+      </div>
+      <div class="card">
+        <div class="cert-list">
+          <div class="cert-item">
+            <strong>Security & Cloud Certifications:</strong> (To be updated with specific certifications such as AWS, Azure, or security-focused credentials.)
+          </div>
+          <div class="cert-item">
+            <strong>Continuous Learning:</strong> Ongoing focus on cloud security, AI/ML-driven detection, and modern security operations practices.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <div class="section-kicker">Contact & Collaboration</div>
+        <h2 class="section-title">Let’s build secure, modern systems—and help others learn along the way</h2>
+        <p class="section-subtitle">
+          Whether you’re a recruiter, a client, or a learner, I’m open to meaningful collaboration.
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="card">
+          <div class="contact-links">
+            <div><strong>Email:</strong> <a href="mailto:jays_cee@yahoo.com">jays_cee@yahoo.com</a></div>
+            <div>
+              <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com/in/cee-jay-5140202b6" target="_blank" rel="noopener">
+                linkedin.com/in/cee-jay-5140202b6
+              </a>
+            </div>
+          </div>
+          <div class="cta-row">
+            <button class="btn btn-primary">
+              Discuss a role or project →
+            </button>
+            <button class="btn">
+              Invite me to speak or mentor
+            </button>
+            <button class="btn">
+              Collaborate on learning content
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <p style="font-size:0.9rem; color:var(--muted);">
+            I’m particularly interested in opportunities where security, cloud, and learning intersect—whether that’s
+            designing secure architectures, improving detection capabilities, or helping teams understand and adopt
+            modern security practices.
+          </p>
+          <p style="font-size:0.9rem; color:var(--muted); margin-top:0.75rem;">
+            If you’re building something ambitious and want a security-focused partner who can also communicate clearly
+            with stakeholders and learners, I’d be happy to connect.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Cee Jay · Cloud & Cybersecurity · Technical Learning
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
