@@ -1,5 +1,5 @@
 # aws-training
-## 🏗️ Network Architecture Decisions
+## Network Architecture Decisions
 
 This project’s VPC design follows AWS best practices for resilience, security, and cost‑efficiency.  
 Below are the key decisions and the reasoning behind them.
