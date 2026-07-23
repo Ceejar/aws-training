@@ -52,9 +52,4 @@ Using NAT Gateway ensures reliability and simplicity.
 
 ---
 
-### **4. Architecture Diagram**
-
-The network architecture diagram is included below:
-
-![AWS VPC Architecture](./architecture/aws-vpc-diagram.png)
 
